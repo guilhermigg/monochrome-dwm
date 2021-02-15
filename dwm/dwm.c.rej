@@ -1,0 +1,11 @@
+--- dwm.c
++++ dwm.c
+@@ -1146,6 +1218,8 @@ manage(Window w, XWindowAttributes *wa)
+ 	c->mon->sel = c;
+ 	arrange(c->mon);
+ 	XMapWindow(dpy, c->win);
++	if (term)
++		swallow(term, c);
+ 	focus(NULL);
+ }
+ 
